@@ -4,7 +4,20 @@ module.exports = defineConfig({
 });
 
 module.exports = {
-  chainWebpack: config => {
-      config.module.rules.delete('eslint');
-  }
-}
+  chainWebpack: (config) => {
+    config.module.rules.delete("eslint");
+  },
+};
+/*module.exports = {
+  alias: {
+    "@": ".",
+    "@src": "src",
+    "@components": "src/components",
+    "@scss": "scss",
+    "@mixins": "scss/mixins",
+    "@utils": "scss/utils",
+    "@routes": "src/router",
+    "@views": "src/views",
+  },
+};
+*/

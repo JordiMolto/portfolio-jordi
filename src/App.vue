@@ -1,11 +1,24 @@
 <template>
-  <hello-world></hello-world>
+    <h2>Jordi</h2>
+    <home></home>
 </template>
 
 <script lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import Home from './views/Home.vue';
+import './App.scss';
+import './scss/botones.scss';
+import './scss/layouts.scss';
+import './scss/mixins.scss';
+import './scss/variables.scss';
+import './scss/utilidades.scss';
 
 export default {
-  components: { HelloWorld },
+    components: { Home },
 };
 </script>
+
+<style scoped>
+h2 {
+    font-family: 'Clicker Script', cursive;
+}
+</style>

@@ -1,0 +1,158 @@
+// -----------------------------------
+// PALETA DE COLORES
+// -----------------------------------
+$color-base-titulo: #222222;
+$color-base-texto: #3b3b3b;
+$color-base-body: #222222;
+$color-base-deshabilidado: #8f8f8f;
+$color-base-exito: #00a323;
+$color-base-error: #a70000;
+
+$color-negro: #000000;
+$color-blanco: #ffffff;
+$color-neutro-negro: #222222;
+$color-neutro-blanco: #e4e4e4;
+
+$color-base-primario-100: #00475e;
+$color-base-primario-50: #3ba1a5;
+$color-base-secundario-100: #f66210;
+$color-base-secundario-50: #ddaa7e;
+
+// -----------------------------------
+// FUENTES
+// -----------------------------------
+$fuente-body: "Poppins", sans-serif;
+
+// -----------------------------------
+// TIPOGRAFÍAS
+// -----------------------------------
+// lista de tamaños de tipografía H1
+$tamanyo-tipografias-h1-app: (
+  "xs": 25px,
+  "md": 38px,
+);
+// lista de tamaños de tipografía H2
+$tamanyo-tipografias-h2-app: (
+  "xs": 18px,
+  "md": 25px,
+);
+// lista de tamaños de tipografía H3
+$tamanyo-tipografias-h3-app: (
+  "xs": 16px,
+  "md": 20px,
+);
+// lista de tamaños de tipografía P (BODY1)
+$tamanyo-tipografias-p-app: (
+  "xs": 15px,
+  "md": 17px,
+);
+// lista de tamaños de tipografía P REGULAR/MEDIUM (BODY2)
+$tamanyo-tipografias-p-regular-app: (
+  "xs": 12px,
+  "md": 12px,
+);
+// lista de tamaños de tipografía P SMALL  (BODY3)
+$tamanyo-tipografias-p-small-app: (
+  "xs": 12px,
+  "md": 12px,
+);
+
+// -----------------------------------
+// LISTADO DE DIMENSIONES BOTONES
+// -----------------------------------
+// botón mobil
+$ancho-boton-mobile: (
+  "pequenyo": 78px,
+  "medio-pequenyo": 156px,
+  "medio-grande": 242px,
+  "grande": 328px,
+);
+$alto-boton-mobile: (
+  "pequenyo": 24px,
+  "medio-pequenyo": 40px,
+  "medio-grande": 40px,
+  "grande": 40px,
+);
+$espaciado-interior-btn-mobile: (
+  "pequenyo": 8px 16px,
+  "medio-pequenyo": 16px 32px,
+  "medio-grande": 16px 52px,
+  "grande": 16px 112px,
+);
+
+// botón tablet
+$ancho-boton-tablet: (
+  "pequenyo": 84px,
+  "medio-pequenyo": 162px,
+  "medio-grande": 248px,
+  "grande": 334px,
+);
+$alto-boton-tablet: (
+  "pequenyo": 30px,
+  "medio-pequenyo": 46px,
+  "medio-grande": 46px,
+  "grande": 46px,
+);
+$espaciado-interior-btn-tablet: (
+  "pequenyo": 8px 18px,
+  "medio-pequenyo": 16px 34px,
+  "medio-grande": 16px 54px,
+  "grande": 16px 114px,
+);
+
+// botón desktop
+$ancho-boton-desktop: (
+  "pequenyo": 90px,
+  "medio-pequenyo": 168px,
+  "medio-grande": 254px,
+  "grande": 340px,
+);
+$alto-boton-desktop: (
+  "pequenyo": 36px,
+  "medio-pequenyo": 52px,
+  "medio-grande": 52px,
+  "grande": 52px,
+);
+$espaciado-interior-btn-desktop: (
+  "pequenyo": 16px 20px,
+  "medio-pequenyo": 16px 36px,
+  "medio-grande": 16px 56px,
+  "grande": 16px 116px,
+);
+
+// -----------------------------------
+// LISTADO DE ESPACIADOS
+// -----------------------------------
+$tamanyos-espaciados: (
+  "espaciado-8": 8px,
+  "espaciado-16": 16px,
+  "espaciado-32": 32px,
+  "espaciado-40": 40px,
+  "espaciado-48": 48px,
+  "espaciado-56": 56px,
+  "espaciado-100": 100px,
+);
+
+$espaciado-8: 8px;
+$espaciado-16: 16px;
+$espaciado-32: 32px;
+$espaciado-40: 40px;
+$espaciado-48: 48px;
+$espaciado-56: 56px;
+$espaciado-100: 100px;
+
+// -----------------------------------
+// LISTADO DE SOMBRAS
+// -----------------------------------
+$sombra-xs: 8px;
+$sombra-s: 12px;
+$sombra-m: 24px;
+$sombra-l: 28px;
+
+// -----------------------------------
+// LISTADO DE RADIOS(bordes)
+// -----------------------------------
+$radio-4: 4px;
+$radio-8: 8px;
+$radio-12: 12px;
+$radio-16: 16px;

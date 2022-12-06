@@ -1,0 +1,150 @@
+@import "mixins";
+
+/*
+    Damos a todos los elementos la propiedad 'border-box' para que los bordes del elemento no ocupen más espacio que las dimensiones del propio elemento
+*/
+*,
+*:before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Número de columnas
+$columnas: (xs: 4,
+    md: 8,
+    xl: 12,
+);
+
+// Espaciado interior
+$gutter: (xs: 12px,
+    s: 16px,
+    sm: 16px,
+    m: 16px,
+    ml: 18px,
+    l: 18px,
+);
+
+// Espaciado lateral
+$espaciado-lateral-col: (xs: 20px,
+    s: 16px,
+    sm: 32px,
+    m: 40px,
+    ml: 56px,
+    l: 160px);
+
+
+.contenedor {
+    margin: 0 auto;
+    // definimos un width manualmente
+    width: calc(100% - 20px);
+    min-width: 250px;
+
+    /// Definimos los espaciados laterales de la fila recorriendo la lista de espaciados laterales($espaciado-lateral-col)
+    /// @param $padding-nombre saca el tamaño ('xs','md','xl')
+    /// @param $padding-pixel saca el contenido del $padding-nombre
+    /// @return devuelve un 'padding' en base al tamaño (después de pasarle el tamaño al breakpoint)
+    /// 
+    @each $padding-nombre,
+    $padding-pixel in $espaciado-lateral-col {
+        @include breakpoint($padding-nombre) {
+            max-width: calc(map-get($breakpoints, $padding-nombre) - map-get( $espaciado-lateral-col, $padding-nombre));
+        }
+    }
+
+    &.fluido {
+        max-width: 100%;
+        width: 100vw;
+        margin: 0;
+    }
+
+    .fila {
+        display: flex;
+        flex-wrap: wrap;
+
+        // le damos a la columna el 100% de la fila hasta que llegue al tamaño más pequeño de $breakpoints
+        // ejemplo: desde 0px hasta xs, por eso el max-width
+        @media (max-width: map-get($breakpoints, xs)) {
+            @for $n-col from 1 through 12 {
+                .col-#{ $n-col } {
+                    width: 100%;
+                }
+            }
+        }
+
+        @for $n-col from 1 through 12 {
+
+            @each $breakpoint-name,
+            $breakpoint-pixel in $breakpoints {
+                @include breakpoint($breakpoint-name) {
+                    gap: 0 map-get($gutter, $breakpoint-name);
+
+                    // mobile
+                    @if $breakpoint-name==xs {
+                        @if $n-col>2 {
+                            .col-#{ $n-col } {
+                                width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * 1)) / 2);
+                            }
+                        }
+
+                        @else {
+                            .col-#{ $n-col } {
+                                width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * calc($n-col - 1))) / $n-col);
+                            }
+                        }
+                    }
+
+                    // tablet
+                    @else if $breakpoint-name==s {
+                        @if $n-col>4 {
+                            .col-#{ $n-col } {
+                                width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * 1)) / 4);
+                            }
+                        }
+
+                        // si $n-col no es mayor que 4, entonces la columna se pinta determinada por $n-col
+                        @else {
+                            .col-#{ $n-col } {
+                                width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * calc($n-col - 1))) / $n-col);
+                            }
+                        }
+                    }
+
+                    // desktop
+                    @else if $breakpoint-name==l {
+                        @if $n-col>4 {
+                            .col-#{ $n-col } {
+                                width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * 1)) / 4);
+                            }
+                        }
+
+                        // si $n-col no es mayor que 4, entonces la columna se pinta determinada por $n-col
+                        @else {
+                            .col-#{ $n-col } {
+                                width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * calc($n-col - 1))) / $n-col);
+                            }
+                        }
+                    }
+
+                    // ancho de la columna determinada por $n-col
+                    @else {
+                        .col-#{ $n-col } {
+                            width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * calc($n-col - 1))) / $n-col);
+                        }
+                    }
+
+                    // esta clase fuerza un .col determinado en cualquier dispositivo(que tenga restricciones, como 'xs', 's', 'l') y lo sobreescribe
+                    // ejemplo: .col-s-7
+                    .col-#{ $breakpoint-name }-#{ $n-col } {
+                        width: calc(calc(100% - calc(map-get($gutter, $breakpoint-name) * calc($n-col - 1))) / $n-col);
+                    }
+
+                }
+            }
+        }
+
+        &.gap-none{
+            gap: 0;
+        }
+    }
+}
+

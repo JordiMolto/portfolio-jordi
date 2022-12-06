@@ -1,0 +1,16 @@
+
+// ==================================================================
+// Tamaños pantalla automatizado
+// =============================================================================
+$breakpoints: (xs: 300px,
+    s: 475px, 
+    sm: 600px, 
+    m: 768px,
+    ml: 1024px,
+    l: 1280px);
+
+@mixin breakpoint($class) {
+    @media (min-width: map-get($breakpoints, $class)) {
+        @content;
+    }
+}

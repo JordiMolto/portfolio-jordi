@@ -1,0 +1,65 @@
+@import "variables";
+@import "mixins";
+
+$displayValue: (none: none,
+    flex: flex,  
+    block: block,
+    inline: inline
+    );
+
+
+// DISPLAY UTILITY (d-'breakpoint'-'display value')
+@each $breakpoint-name, $breakpoint-pixel in $breakpoints {
+    @each $displayValue-name, $displayValue-value in $displayValue{
+        @include breakpoint($breakpoint-name) {
+            .d-#{$breakpoint-name}-#{$displayValue-value} {
+                display: $displayValue-value !important;
+            }
+        }
+    }
+}
+
+
+@each $nombre, $tamanyo in $tamanyos-espaciados {
+    /// margin
+    .m-#{$nombre} {
+        margin: $tamanyo;
+    }
+
+    .mr-#{$nombre} {
+        margin-right: $tamanyo;
+    }
+
+    .ml-#{$nombre} {
+        margin-left: $tamanyo;
+    }
+
+    .mt-#{$nombre} {
+        margin-top: $tamanyo;
+    }
+
+    .mb-#{$nombre} {
+        margin-bottom: $tamanyo;
+    }
+
+    /// padding
+    .p-#{$nombre} {
+        padding: $tamanyo;
+    }
+
+    .pr-#{$nombre} {
+        padding-right: $tamanyo;
+    }
+
+    .pl-#{$nombre} {
+        padding-left: $tamanyo;
+    }
+
+    .pt-#{$nombre} {
+        padding-top: $tamanyo;
+    }
+
+    .pb-#{$nombre} {
+        padding-bottom: $tamanyo;
+    }
+}

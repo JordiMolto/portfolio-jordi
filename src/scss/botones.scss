@@ -1,0 +1,133 @@
+@import "variables";
+@import "mixins";
+
+input {
+    border-color: $color-base-primario-100;
+}
+
+button {
+    font-family: $fuente-body;
+    border-color: $color-base-primario-100;
+    background: $color-base-primario-100;
+    color: $color-blanco;
+    transition: 0.2s;
+
+    &:hover,
+    &:focus {
+        background-color: $color-base-primario-50;
+        border-color: $color-base-primario-50;
+    }
+
+    &:disabled {
+        border-color: $color-base-deshabilidado;
+        background-color: $color-base-deshabilidado;
+    }
+
+    &.deshabilitado {
+        color: $color-blanco;
+        background: $color-base-primario-100;
+        border-color: $color-base-deshabilidado;
+        background-color: $color-base-deshabilidado;
+    }
+
+    &.contorneado {
+        color: $color-base-primario-100;
+        background: $color-blanco;
+        border-color: $color-base-primario-100;
+
+        &:hover,
+        &:focus {
+            background: $color-blanco;
+            color: $color-base-primario-50;
+            border-color: $color-base-primario-50;
+        }
+
+        &:disabled {
+            color: $color-base-deshabilidado;
+            border-color: $color-base-deshabilidado;
+            background: $color-blanco;
+        }
+    }
+
+    &.secundario {
+        border-color: $color-base-secundario-100;
+        background: $color-base-secundario-100;
+
+        &:hover,
+        &:focus {
+            background-color: $color-base-secundario-50;
+            border-color: $color-base-secundario-50;
+        }
+    }
+}
+
+/* Estilos de los botones */
+button,
+input {
+    border-width: 2px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    border-style: solid;
+
+    background-size: 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-size 0.75s;
+    &.cargando {
+        background-size: 24px;
+        //background-image: url("@img/home/icons/landings/loading-blanco.svg");
+    }
+
+    @include breakpoint(xs) {
+        height: 40px;
+        line-height: 32px;
+    }
+
+    @include breakpoint(md) {
+        height: 48px;
+        line-height: 40px;
+    }
+
+    @include breakpoint(l) {
+        height: 56px;
+        line-height: 50px;
+    }
+
+    cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &.mediano {
+        width: 400px;
+
+        @include breakpoint(md) {
+            width: 245px;
+        }
+
+        @include breakpoint(xs) {
+            width: 200px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    &.pequeno {
+        width: 256px;
+
+        @include breakpoint(md) {
+            width: 128px;
+        }
+
+        @include breakpoint(xs) {
+            width: 64px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
